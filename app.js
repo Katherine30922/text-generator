@@ -1,0 +1,31 @@
+const text=[
+    `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+    `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`,
+    `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.."`,
+    `There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.`,
+    `Etiam eget egestas velit. Maecenas a tempor justo, eu tempus urna. Ut scelerisque augue eros, sit amet mattis leo laoreet eu. Pellentesque porta hendrerit leo elementum efficitur. Etiam malesuada elit a tellus tempus, sit amet euismod ligula blandit. Nunc nec placerat metus. Sed viverra justo nec ligula maximus, eget luctus nisl cursus. Mauris libero enim, laoreet in neque ut, elementum feugiat justo. Fusce pretium iaculis leo a sodales. Nunc tincidunt maximus est ac sollicitudin. Nam vehicula dictum mauris, at commodo justo faucibus id. Mauris luctus non eros ac viverra. Nullam finibus ante id magna tincidunt, viverra fringilla dui congue. Pellentesque faucibus, magna eu sollicitudin dapibus, nibh sapien posuere neque, quis ultricies odio ligula non est. Curabitur vitae enim lorem. Proin vitae lectus quis nulla gravida convallis vitae sit amet nisi.`,
+    `Vivamus ex quam, tincidunt et justo vel, aliquam ultrices sem. Nam interdum odio id leo pharetra, in lacinia risus consectetur. In hac habitasse platea dictumst. Ut fermentum tellus iaculis, commodo mi id, mattis magna. Duis vel lectus interdum, porta dui eu, rhoncus eros. Sed eros odio, lacinia accumsan augue sit amet, iaculis rhoncus nisi. Nulla at venenatis risus. Maecenas hendrerit ornare velit, et tempus metus dictum eu. Aenean cursus pellentesque massa, non luctus lectus molestie a. Mauris vel mauris massa. Sed feugiat vulputate libero sed hendrerit.`,
+    `Mauris tristique sollicitudin erat vel posuere. Proin accumsan urna vitae gravida porttitor. Fusce ut diam ut elit porta finibus. Duis accumsan, massa id finibus euismod, eros eros lobortis quam, in placerat neque felis id felis. Sed bibendum auctor augue, ac fermentum erat. Suspendisse dapibus nibh tortor, vitae consectetur odio tincidunt eu. Integer nec odio ut mauris cursus rhoncus sed vel sem.`,
+    `Mauris tincidunt viverra libero, et volutpat nulla accumsan non. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae elit maximus justo bibendum accumsan eget sagittis nibh. Duis interdum urna velit, quis consectetur enim dignissim in. Etiam sit amet ultricies sapien. Quisque sit amet tempor diam, at accumsan erat. Integer porttitor leo id metus porta mattis. Morbi quis velit urna. Nam vestibulum velit mattis, semper odio ut, molestie augue.`,
+    `Nam ut mauris ut eros pretium ornare. Phasellus tincidunt dolor ipsum, quis suscipit nisl laoreet ut. Maecenas sit amet lacinia tortor, ac porta diam. Cras ac enim ut arcu porttitor porta. Curabitur est nibh, viverra ut lacinia id, consectetur nec diam. Etiam vehicula dui eu velit ultrices viverra. Phasellus vehicula imperdiet eros eu viverra. Quisque lacus justo, ultricies ut dolor vel, cursus vulputate orci.`
+]
+const form=document.querySelector('.text-form');
+const amount=document.getElementById('amount');
+const result=document.querySelector('.text');
+
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+    //Even if initial enter type is number, but actual type of amount is a string, so change it to number type
+    const value=parseInt(amount.value)
+    const random=Math.floor(Math.random()*text.length);
+    //empty/<1/>10
+    if(isNaN(value<0)||isNaN(value)||value>10){
+        result.innerHTML=`<p class="result">${text[random]}</p>`;
+    }else{
+        let temptext=text.slice(0,value);//get the particular datas in the array
+        temptext=temptext.map(function(item){//return every item text
+        return`<p class="result">${item}</p>`
+       }).join(" ");
+       result.innerHTML=temptext;
+    }
+});

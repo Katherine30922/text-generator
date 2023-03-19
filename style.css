@@ -1,0 +1,51 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(227, 225, 218);
+
+}
+.section-center{
+    margin-top: 3rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+}
+.title{
+    font-size: 23px;
+    color: rgb(93, 112, 127);
+    font-weight: 500;
+}
+.section-center article{
+    text-align: justify;
+}
+form{
+    color: rgb(93, 112, 127);
+}
+input{
+    width: 3.5rem;
+    height: 1.4rem;
+    border: none;
+    border-radius: 0.7rem;
+}
+button{
+    background-color: transparent;
+    border: 1.7px solid rgb(159, 174, 184);
+    color: rgb(159, 174, 184);
+    cursor: pointer;
+    border-radius: 0.8rem;
+    padding: 4px;
+    margin-left: 7px;
+}
+button:hover{
+    background-color: transparent;
+    border: 1.7px solid rgb(93, 112, 127);
+    color: rgb(93, 112, 127);
+    transition: all linear 0.2s;
+}
+.text{
+    color: rgb(84, 102, 117);
+    margin-top: 3rem;
+    line-height: 1.8;
+    font-size: 16px;
+}
